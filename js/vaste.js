@@ -14,6 +14,8 @@ toastr.options = {
     "hideMethod": "fadeOut"
 };
 
+moment.locale('zh-cn');
+
 var vaste = new Vue({
     el: '#text',
     data: {
@@ -31,10 +33,12 @@ var vaste = new Vue({
     },
     computed:{
       processedTexts:function () {
+          var _self=this;
           if (this.texts.length !== 0) {
-              return this.texts.filter(function (a) {
-                  //TODO 1.将unix时间转换为正常时间，并且按照与当前时间差显示  2.排除当前的shortId  3.没截取到的文体用...代替
-                  a.updatetime = moment(a.updatetime).startOf('hour').fromNow();
+              return bubbleSort(_self.texts,'updatetime').filter(function (a) {
+
+                  //TODO  3.没截取到的文体用...代替
+                  a.updatetime = moment(a.updatetime).fromNow();
                   if (a.text !== null) {
                       a.text = a.text.slice(0, 40);
                   }

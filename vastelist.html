@@ -42,7 +42,7 @@
 
 
     <script src="//cdn.bootcss.com/moment.js/2.17.1/moment.min.js"></script>
-
+    <script src="//cdn.bootcss.com/moment.js/2.17.1/locale/zh-cn.js"></script>
 
 </head>
 <body>
@@ -59,7 +59,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr v-for="(a,index) in processText(texts)">
+                <tr v-for="(a,index) in processedTexts">
                     <td>{{index+1}}</td>
                     <td>{{a.updatetime}}</td>
                     <td><a :href="'/'+a.shortID">{{a.shortID}}</a></td>
@@ -75,6 +75,7 @@
 
 
 <script src="js/vaste.js"></script>
+<script src="js/common.js"></script>
 
 </body>
 </html>
