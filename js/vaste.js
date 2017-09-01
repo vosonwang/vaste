@@ -37,7 +37,7 @@ var vaste = new Vue({
           if (this.texts.length !== 0) {
               return bubbleSort(_self.texts,'updatetime').filter(function (a) {
                   //TODO  3.没截取到的文体用...代替
-                  if(a.createtime!==null){a.createtime = moment(a.createtime).fromNow();}
+                  if(a.updatetime!==null){a.updatetime = moment(a.updatetime).fromNow();}
                   if (a.text !== null) {a.text = a.text.slice(0, 40);}
                   return a;
               })
